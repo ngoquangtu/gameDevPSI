@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: platform
+    uniqueID: 3435699687
+    locked: 0
+  - name: background
+    uniqueID: 1139435765
+    locked: 0
