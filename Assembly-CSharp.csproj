@@ -68,6 +68,7 @@
     <Compile Include="Assets\Assets\Input\PlayerInput.cs" />
     <Compile Include="Assets\Assets\Pixel Art Top Down - Basic\Script\SpriteColorAnimation.cs" />
     <Compile Include="Assets\Assets\Scipts\Player\InputManager1.cs" />
+    <Compile Include="Assets\Enemy_1.cs" />
     <Compile Include="Assets\Assets\Event\GameEventManager.cs" />
   </ItemGroup>
   <ItemGroup>
