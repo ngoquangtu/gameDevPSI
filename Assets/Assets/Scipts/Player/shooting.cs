@@ -23,6 +23,9 @@ public class Shooting : MonoBehaviour
      [SerializeField] private float bulletSpread=10f;
      [SerializeField] private float recoilForce=2.0f;
 
+     public float smoothSpeed = 100f;
+
+
     private AudioSource audioShot;
     
     private void Awake()
@@ -34,7 +37,6 @@ public class Shooting : MonoBehaviour
     {
         startposCrossHair();
         hideCusor();
-
     }
     void Update()
     {
@@ -45,7 +47,7 @@ public class Shooting : MonoBehaviour
             bulletEffect.SetActive(true);
             Shoot();
         }
-        else
+        else if(!Input.GetMouseButton(0))
         {
             bulletEffect.SetActive(false);
         }
@@ -76,24 +78,36 @@ public class Shooting : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 bulletDirection = (mousePosition - posBullet.position).normalized;
         Quaternion bulletRotation = Quaternion.Euler(0f, 0f, angleBullet);
-        bullet = Instantiate(bulletPrefab, posBullet.position, bulletRotation); 
+        // bullet = Instantiate(bulletPrefab, posBullet.position, bulletRotation); 
+        bullet=ObjectPooling.instance.GetPooledObject();
+        if(bullet != null)
+        {
+            bullet.transform.position=posBullet.position;
+            bullet.transform.rotation = bulletRotation;
+            bullet.SetActive(true);
+
+        }
+        CinemacineShake.instance.ShakeCamera(5f,0.1f);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        // rb.velocity = bulletDirection * bulletSpeed; 
         rb.AddForce(transform.right*bulletSpeed, ForceMode2D.Impulse);
         gunAnim.SetTrigger("Shoot");
         audioShot.Play();
-        Destroy(bullet, 5f);
     }
     void startposCrossHair()
     {
+        // crosshairPosition = crossHair.transform.position;
+        // crosshairPosition.x = mousePosition.x;
+        // crosshairPosition.y = mousePosition.y;
+        // crosshairPosition.z=0;
+        // crossHair.transform.localPosition = crosshairPosition;
         crosshairPosition = crossHair.transform.position;
-        crosshairPosition.x = mousePosition.x;
-        crosshairPosition.y = mousePosition.y;
-        crosshairPosition.z=0;
+        Vector3 targetPosition = new Vector3(mousePosition.x, mousePosition.y, 0f);
+        crosshairPosition = Vector3.Lerp(crosshairPosition, targetPosition, smoothSpeed * Time.deltaTime);
         crossHair.transform.localPosition = crosshairPosition;
     }
     void hideCusor()
     {
         Cursor.visible = false; 
     }
+
 }
