@@ -23,10 +23,8 @@ public class Weapon_enemies : MonoBehaviour
     {
         RotateGun();
         timeBtwFire -= Time.deltaTime;
-        if (Input.GetMouseButton(0))
-        {
-            FireBullet();
-        }
+        FireBullet();
+       
     }
     void RotateGun()
     {
@@ -54,7 +52,7 @@ public class Weapon_enemies : MonoBehaviour
 
         Rigidbody2D rb = bulletTmp.GetComponent<Rigidbody2D>();
         //thêm lực vào vật
-        rb.AddForce(transform.up * bulletForce, ForceMode2D.Impulse);
+        rb.AddForce(transform.right * bulletForce, ForceMode2D.Impulse);
 
 
     }
