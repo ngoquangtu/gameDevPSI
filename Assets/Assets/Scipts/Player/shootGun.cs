@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shooting : MonoBehaviour
+public class shootGun : MonoBehaviour
 {
     [SerializeField] private Transform posBullet;
     [SerializeField] private GameObject bulletPrefab;
@@ -23,11 +23,10 @@ public class Shooting : MonoBehaviour
      [SerializeField] private float bulletSpread=10f;
      [SerializeField] private float recoilForce=2.0f;
 
-     public float smoothSpeed = 100f;
-    
+    [SerializeField] private  float smoothSpeed = 100f;
 
     private AudioSource audioShot;
-    
+
     private void Awake()
     {
         audioShot = GetComponent<AudioSource>();
@@ -37,6 +36,7 @@ public class Shooting : MonoBehaviour
     {
         startposCrossHair();
         hideCusor();
+
     }
     void Update()
     {
@@ -47,12 +47,12 @@ public class Shooting : MonoBehaviour
             bulletEffect.SetActive(true);
             Shoot();
         }
-        else if(!Input.GetMouseButton(0))
+        else
         {
             bulletEffect.SetActive(false);
         }
     }
-    
+
     void rotateGun()
     {
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -78,19 +78,13 @@ public class Shooting : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 bulletDirection = (mousePosition - posBullet.position).normalized;
         Quaternion bulletRotation = Quaternion.Euler(0f, 0f, angleBullet);
-        // bullet = Instantiate(bulletPrefab, posBullet.position, bulletRotation); 
-        bullet=ObjectPooling.instance.GetPooledObject();
-        if(bullet != null)
-        {
-            bullet.transform.position=posBullet.position;
-            bullet.transform.rotation = bulletRotation;
-            bullet.SetActive(true);
-        }
-        CinemacineShake.instance.ShakeCamera(5f,0.1f);
+        bullet = Instantiate(bulletPrefab, posBullet.position, bulletRotation); 
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        // rb.velocity = bulletDirection * bulletSpeed; 
         rb.AddForce(transform.right*bulletSpeed, ForceMode2D.Impulse);
         gunAnim.SetTrigger("Shoot");
         audioShot.Play();
+        Destroy(bullet, 5f);
     }
     void startposCrossHair()
     {
@@ -103,5 +97,4 @@ public class Shooting : MonoBehaviour
     {
         Cursor.visible = false; 
     }
-
 }

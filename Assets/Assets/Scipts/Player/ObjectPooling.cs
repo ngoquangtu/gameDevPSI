@@ -7,8 +7,10 @@ public class ObjectPooling : MonoBehaviour
     
     public static ObjectPooling instance;
     private List<GameObject> pooledObjects = new List<GameObject>();
+    private List<GameObject> pooledhitObjects = new List<GameObject>();
     private int amountToPool=40;
     [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private GameObject hitbulletPrefab;
     [SerializeField] private float timeDestroyBullet=5.0f;
     private void Awake() {
         {
@@ -23,10 +25,12 @@ public class ObjectPooling : MonoBehaviour
         for(int i = 0; i < amountToPool; i++) 
         {
             GameObject obj=Instantiate(bulletPrefab);
+            GameObject hitobj=Instantiate(hitbulletPrefab);
             obj.SetActive(false);
+            hitobj.SetActive(false);;
             pooledObjects.Add(obj);    
+            pooledhitObjects.Add(hitobj);
         }
-        
     }
     public GameObject GetPooledObject()
     {
@@ -38,10 +42,17 @@ public class ObjectPooling : MonoBehaviour
                 return pooledObjects[i];
             }
         }
+         for(int i = 0; i < pooledhitObjects.Count; i++) 
+        {
+            if(!pooledhitObjects[i].activeInHierarchy)
+            {   
+                return pooledhitObjects[i];
+            }
+        }
         return null;
     }
         IEnumerator DeactivateBulletAfterDelay(GameObject bullet)
-    {
+    {   
         yield return new WaitForSeconds(timeDestroyBullet);
         bullet.SetActive(false);
     }

@@ -31,7 +31,7 @@ TagManager:
   - Layer3
   - Player
   - Bullet
-  - 
+  - LayerObject
   - 
   - 
   - 
@@ -53,6 +53,9 @@ TagManager:
     locked: 0
   - name: Bullet
     uniqueID: 1901898223
+    locked: 0
+  - name: LayerObject
+    uniqueID: 2835740541
     locked: 0
   - name: Player
     uniqueID: 1235994657
