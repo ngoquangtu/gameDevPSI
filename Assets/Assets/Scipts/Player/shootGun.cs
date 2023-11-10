@@ -24,6 +24,7 @@ public class shootGun : MonoBehaviour
      [SerializeField] private float recoilForce=2.0f;
 
     [SerializeField] private  float smoothSpeed = 100f;
+    public int damagePlayer;
 
     private AudioSource audioShot;
 
@@ -80,7 +81,7 @@ public class shootGun : MonoBehaviour
         Quaternion bulletRotation = Quaternion.Euler(0f, 0f, angleBullet);
         bullet = Instantiate(bulletPrefab, posBullet.position, bulletRotation); 
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        // rb.velocity = bulletDirection * bulletSpeed; 
+        CinemacineShake.instance.ShakeCamera(5f,0.1f);
         rb.AddForce(transform.right*bulletSpeed, ForceMode2D.Impulse);
         gunAnim.SetTrigger("Shoot");
         audioShot.Play();

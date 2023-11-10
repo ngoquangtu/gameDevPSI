@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 745119051979674301}
   - component: {fileID: 2117780304230106633}
   - component: {fileID: 7646555208475097270}
-  - component: {fileID: 1246416682485438461}
+  - component: {fileID: 926244067021075265}
   m_Layer: 24
   m_Name: Bullet
   m_TagString: Untagged
@@ -159,7 +159,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &1246416682485438461
+--- !u!114 &926244067021075265
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,7 +168,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3787746480790278379}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a7ea235bdb93594d8dfe72ae937729b, type: 3}
+  m_Script: {fileID: 11500000, guid: cd71c5b2384533e4e898daa4fa54ce7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hitEffectPrefab: {fileID: 8241285366689173618, guid: 96ace276a75751b489d6716a09582c87, type: 3}
+  damagePlayer: 10

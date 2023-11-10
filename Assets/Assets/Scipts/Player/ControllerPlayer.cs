@@ -12,7 +12,7 @@ public class ControllerPlayer : MonoBehaviour
         private Rigidbody2D rb;
         [SerializeField] private SpriteRenderer characterRenderer;
         
-        private enum State{idleside,idleup,idledown,walkside,walkup,walkdown,runside,runup,rundown}
+        private enum State{idleside,idleup,idledown,walkside,walkup,walkdown,runside,runup,rundown,died}
         private State state=State.idleside;
 
         //Weapon
@@ -34,6 +34,7 @@ public class ControllerPlayer : MonoBehaviour
 
             Moving();
             switchWeapon();
+            checkDied();
         }
 
         private void Moving()
@@ -85,6 +86,11 @@ public class ControllerPlayer : MonoBehaviour
             {
                 state=State.idledown;
             } 
+            else if(PermenantUI.perm.currentHealth<=0)
+            {
+                state=State.died;
+            }
+        
         }
         private void switchWeapon()
         {
@@ -103,6 +109,14 @@ public class ControllerPlayer : MonoBehaviour
             isSwordActive = !isSwordActive;
             }
         }
+        private void checkDied()
+        {
+            if(state=State.died)
+            {
+                //Regame
+
+            }
+        }
         private void startWeapon()
         {
             sword.SetActive(false);
@@ -112,4 +126,6 @@ public class ControllerPlayer : MonoBehaviour
         {
             anim.SetInteger("state",(int)state);
         }
-}
+    } 
+
+

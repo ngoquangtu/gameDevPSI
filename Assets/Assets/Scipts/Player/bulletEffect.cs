@@ -7,6 +7,7 @@ public class bulletEffect : MonoBehaviour
 public GameObject hitEffectPrefab;
 private bool hasHit = false;
 public static bulletEffect instance;
+public int damagePlayer = 10;
 
 private void Awake() 
 {
@@ -23,7 +24,15 @@ private void OnCollisionEnter2D(Collision2D collision)
         hasHit = true; 
         Destroy(effectBullet,0.1f);
         gameObject.SetActive(false);
-        Debug.Log("da va cham");
-    }  
+    } 
+            if(collision.collider.CompareTag("Enemy"))
+            {
+                Enemies enemy=collision.collider.GetComponent<Enemies>();
+                if(enemy != null )
+                {
+                    enemy.TakeDamage(damagePlayer);
+                }
+            }
+        } 
 }
-}
+
