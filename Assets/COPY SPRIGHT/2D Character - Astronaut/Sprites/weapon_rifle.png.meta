@@ -189,64 +189,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rifle_0
+      name: weapon_rifle_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 448
-        height: 432
-      alignment: 9
-      pivot: {x: 0.5, y: 0.295}
+        x: 102
+        y: 152
+        width: 169
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d25f273a7976a370800000000000000
-      internalID: 8333481726314500824
+      spriteID: 7caa31ad6f5cda244a2b4f6822a3ab0f
+      internalID: 576015467
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rifle_1
+      name: weapon_rifle_1
       rect:
         serializedVersion: 2
-        x: 448
-        y: 0
-        width: 448
-        height: 432
-      alignment: 9
-      pivot: {x: 0.5, y: 0.295}
+        x: 1087
+        y: 219
+        width: 65
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e64e4d5dd3f43cdd0800000000000000
-      internalID: -2467041043869801362
+      spriteID: 1d26ddb3fad372d4cb1e163d2b4c3332
+      internalID: -1677432692
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rifle_2
+      name: weapon_rifle_2
       rect:
         serializedVersion: 2
-        x: 896
-        y: 0
-        width: 448
-        height: 432
-      alignment: 9
-      pivot: {x: 0.5, y: 0.295}
+        x: 639
+        y: 84
+        width: 65
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1ddc262b6f4da680800000000000000
-      internalID: -8742243980035695331
+      spriteID: 6fd6ad2190542764db10f6e5955f4e02
+      internalID: 1435774183
       vertices: []
       indices: 
       edges: []
@@ -262,9 +262,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      rifle_0: 8333481726314500824
-      rifle_1: -2467041043869801362
-      rifle_2: -8742243980035695331
+      weapon_rifle_0: 576015467
+      weapon_rifle_1: -1677432692
+      weapon_rifle_2: 1435774183
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

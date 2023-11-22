@@ -15,4 +15,4 @@ MonoBehaviour:
   itemName: Weapon
   Icon: {fileID: 8151861652172512272, guid: a1925e7d73214f63a8ddcce6bea40954, type: 3}
   Description: cay kiem
-  category: 0
+  category: 1

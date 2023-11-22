@@ -16,7 +16,6 @@ public class IngameItem : ScriptableObject {
     public static class Database
     {
         static List<IngameItem> IngameItems = null;
-
         public static List<IngameItem> GetIngameItems()
         {
             if (IngameItems != null)

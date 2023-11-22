@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class ControllerPlayer : MonoBehaviour
 {
+        public static ControllerPlayer Instance { get; private set; }
         [SerializeField] private  float moveSpeed;
         public float horizontalInput;
         public float verticalInput;
@@ -15,10 +15,21 @@ public class ControllerPlayer : MonoBehaviour
         private enum State{idleside,idleup,idledown,walkside,walkup,walkdown,runside,runup,rundown,died}
         private State state=State.idleside;
 
+
+        // Inventory
+        // private Inventory inventory ;
+        [SerializeField] private UIventory uiventory;
         //Weapon
         [SerializeField] private GameObject sword;
         [SerializeField] private GameObject gun;
         private bool isSwordActive = false;
+
+        private void Awake()
+        {
+            Instance = this;
+            // inventory=new Inventory();
+            // uiventory.SetInventory(inventory);
+        }
         private void Start()
         {
             rb=GetComponent<Rigidbody2D>();
@@ -111,7 +122,7 @@ public class ControllerPlayer : MonoBehaviour
         }
         private void checkDied()
         {
-            if(state=State.died)
+            if(state==State.died)
             {
                 //Regame
 

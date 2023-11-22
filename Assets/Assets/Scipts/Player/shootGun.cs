@@ -66,11 +66,11 @@ public class shootGun : MonoBehaviour
         gun.transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         if(transform.eulerAngles.z>90 && transform.eulerAngles.z<270)
         {
-            transform.localScale=new Vector3(1,-1,0);
+            transform.localScale=new Vector3(-1,-1,0);
         }
         else
         {
-            transform.localScale=new Vector3(1,1,0);
+            transform.localScale=new Vector3(-1,1,0);
         }
     }
     void Shoot()
