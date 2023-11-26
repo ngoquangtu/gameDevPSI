@@ -68,7 +68,6 @@
     <Compile Include="Assets\Assets\Art\Cainos\Pixel Art Top Down - Basic\Script\SpriteColorAnimation.cs" />
     <Compile Include="Assets\Assets\Scipts\UI\guiInventory.cs" />
     <Compile Include="Assets\Assets\Art\Cainos\Pixel Art Top Down - Basic\Script\TopDownCharacterController.cs" />
-    <Compile Include="Assets\Assets\Scipts\Enemies\Weapon_enemies.cs" />
     <Compile Include="Assets\Assets\Scipts\Player\shooting.cs" />
     <Compile Include="Assets\Assets\Scipts\EffectTime\TimeTravel.cs" />
     <Compile Include="Assets\Assets\Scipts\UI\Item.cs" />
