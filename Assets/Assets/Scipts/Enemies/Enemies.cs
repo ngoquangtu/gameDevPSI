@@ -1,6 +1,7 @@
 using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
@@ -10,22 +11,16 @@ public class Enemies : MonoBehaviour
     private int currentHealth;
     [SerializeField] private int damageEnemy;
 
-    public bool roaming = true;
+    public bool ismovetable;
     public float moveSpeed;
     public float nextWPDistance;
     public Seeker seeker;
     public bool updateContinuousPath;
-    bool reachDestination = false;
+    private bool reachDestination = false;
+    private bool roaming =false ; // update path occasionally
     Path path;
-
-    //Shoot
-    public bool isShoottable;
-    public GameObject bullet = null;
-    public float bulletSpeed;
-    public float TimebtwFire;
-    private float fireCooldown;
-
     Coroutine moveCoroutine;
+
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
@@ -68,6 +63,7 @@ public class Enemies : MonoBehaviour
         Destroy(gameObject);
         Debug.LogWarning("ENEMY DIED");
     }
+
     void CaculatePath()
     {
         Vector2 target = FindTarget();
@@ -97,7 +93,7 @@ public class Enemies : MonoBehaviour
         {
             Vector2 direction = ((Vector2)path.vectorPath[currentWP] - (Vector2)transform.position).normalized;
             Vector2 force = direction * moveSpeed * Time.deltaTime;
-            transform.position += (Vector3)force;
+            transform.position += (Vector3)force;   
 
             float distance = Vector2.Distance(transform.position, path.vectorPath[currentWP]);
             if (distance < nextWPDistance)
@@ -112,36 +108,36 @@ public class Enemies : MonoBehaviour
         Vector3 playePos = GameObject.FindGameObjectWithTag("Player").transform.position;
         if (roaming == true)
         {
-            return (Vector2)playePos + Random.Range(5f, 10f) * new Vector2(Random.Range(-1, 1), Random.Range(-1, 1)).normalized;
+            return (Vector2)playePos + Random.Range(6f, 10f) * new Vector2(Random.Range(-10, 10), Random.Range(-10, 10)).normalized;
         }
         else
         {
             return (Vector2)playePos;
         }
     }
-    void EnemyFireBullet()
+    public bool set_reachDestination(bool c)
     {
-        var bulletTmp = Instantiate(bullet, transform.position, Quaternion.identity);
-        Rigidbody2D rb = bulletTmp.GetComponent<Rigidbody2D>();
-        Vector3 playePos = GameObject.FindGameObjectWithTag("Player").transform.position;
-        Vector3 direction = playePos - (Vector3)transform.position;
-        rb.AddForce(direction.normalized * bulletSpeed, ForceMode2D.Impulse);
+        reachDestination=c;
+        return reachDestination;
+    }
+    public bool set_roaming(bool c)
+    {
+        roaming = c;
+        return roaming;
+    }
+    public void run()
+    {
+        set_reachDestination(true);
+        InvokeRepeating("CaculatePath", 0f, 0.5f);
     }
     void Start()
     {
-        reachDestination = true;
-        InvokeRepeating("CaculatePath", 0f, 0.5f);
+        if (ismovetable)
+            run();
         currentHealth = maxenemyHealth;
     }
     void Update()
     {
-        fireCooldown -= Time.deltaTime;
 
-        if (fireCooldown < 0 && isShoottable)
-        {
-            fireCooldown = TimebtwFire;
-            //shoot 
-            EnemyFireBullet();
-        }
     }
 }

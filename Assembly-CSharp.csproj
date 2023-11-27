@@ -72,6 +72,7 @@
     <Compile Include="Assets\Assets\Scipts\EffectTime\TimeTravel.cs" />
     <Compile Include="Assets\Assets\Scipts\UI\Item.cs" />
     <Compile Include="Assets\Assets\Scipts\Player\ObjectPooling.cs" />
+    <Compile Include="Assets\Assets\Scipts\Enemies\Shooting_enemies.cs" />
     <Compile Include="Assets\Assets\Scipts\UI\ItemSlot.cs" />
     <Compile Include="Assets\Assets\Scipts\Player\ControllerPlayer.cs" />
     <Compile Include="Assets\Assets\Scipts\Player\playerHealth.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="Assets\Assets\Scipts\UI\DragNDrop.cs" />
     <Compile Include="Assets\Assets\Event\GameEventManager.cs" />
     <Compile Include="Assets\Assets\Scipts\Player\RecoilShooting.cs" />
+    <Compile Include="Assets\Assets\Scipts\Enemies\demo_shoot.cs" />
     <Compile Include="Assets\Assets\Scipts\Player\bulletEffect.cs" />
     <Compile Include="Assets\Assets\Scipts\UI\ItemPotion.cs" />
   </ItemGroup>
