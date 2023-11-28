@@ -6,6 +6,7 @@ using TMPro;
 public class healthDisplayUI : MonoBehaviour
 {
     public TMP_Text damageTextPrefab; 
+    public TMP_Text healthPotionTextPrefab;
     public Transform canvasTransform; 
     public float damageDuration = 1.0f;
     public float damageSpeed = 1.0f; 
@@ -22,9 +23,17 @@ public class healthDisplayUI : MonoBehaviour
     public void ShowDamageText(int damage)
     {
         TMP_Text damageText = Instantiate(damageTextPrefab, canvasTransform);
+        
         damageText.text = damage.ToString();
+        
 
         StartCoroutine(MoveAndDestroy(damageText));
+    }
+    public void ShowBonusHealthText(int healthBonus)
+    {
+        TMP_Text healthPotionText = Instantiate(healthPotionTextPrefab, canvasTransform);
+        healthPotionText.text=healthBonus.ToString();
+        StartCoroutine(MoveAndDestroy(healthPotionText));
     }
     IEnumerator MoveAndDestroy(TMP_Text damageText)
     {
