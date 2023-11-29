@@ -13,7 +13,6 @@ public  class Character:MonoBehaviour
     protected Rigidbody2D rb{get;set;}
     protected Animator animator{get;set;}
     protected CapsuleCollider2D capsuleCollider2D{get;set;}
-    // protected CinemachineVirtualCamera  virtualCamera{get;set;}
 
     protected float horizontalInput;
     protected float verticalInput;
