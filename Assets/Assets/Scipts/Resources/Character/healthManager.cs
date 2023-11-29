@@ -14,10 +14,11 @@ public class healthManager : MonoBehaviour,INTERhealthManager
     internal  float maxHealth;
     internal  float currentHealth;
 
-    public void Update()
+    private void Update()
     {
         UpdateHealthBar();
         Debug.Log(currentHealth);
+        Debug.Log(healthBar.value);
     }
     public virtual void TakeDamage(float damage)
     {

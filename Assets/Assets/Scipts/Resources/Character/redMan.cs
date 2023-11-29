@@ -16,7 +16,6 @@ public class redMan : Character,INTERhealthManager
     protected override void Start()
     {
         base.Start();
-        // virtualCamera=character.transform;
         healthmanage = FindObjectOfType<healthManager>();
         if (healthmanage != null)
         {
