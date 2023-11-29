@@ -12,6 +12,7 @@ public class redMan : Character,INTERhealthManager
         speed = 10;
         hp = 200;
         damagePlayer = 15;
+        Debug.LogWarning("da duoc goi"+hp);
     }
     protected override void Start()
     {
@@ -20,14 +21,15 @@ public class redMan : Character,INTERhealthManager
         if (healthmanage != null)
         {
             healthmanage.SetMaxHealth(hp);
+            Debug.LogWarning("hp"+hp);
         }
     }
     private void Update()
     {
         healthmanage.UpdateHealthBar();
-        healthmanage.TakeDamage(damagePlayer);
+        // healthmanage.TakeDamage(damagePlayer);
         currentHealth = healthmanage.GetCurrentHealth();
-        Debug.Log(currentHealth);
+        Debug.Log("Mau hien tai:"+currentHealth);
     }
     public void SetMaxHealth(float max)
     {
@@ -37,7 +39,7 @@ public class redMan : Character,INTERhealthManager
         }
         else
         {
-            Debug.LogError("healthManagerReference is null. Ensure it's assigned in the inspector or initialized during Start.");
+            Debug.LogError("healthManagerReference is null");
         }
     }
 
@@ -50,7 +52,7 @@ public class redMan : Character,INTERhealthManager
         }
         else
         {
-            Debug.LogError("healthManagerReference is null. Ensure it's assigned in the inspector or initialized during Start.");
+            Debug.LogError("healthManagerReference is null");
         }
     }
      public void UpdateHealthBar()
@@ -61,7 +63,7 @@ public class redMan : Character,INTERhealthManager
         }
         else
         {
-            Debug.LogError("healthManagerReference is null. Ensure it's assigned in the inspector or initialized during Start.");
+            Debug.LogError("healthManagerReference is null.");
         }
     }
 
