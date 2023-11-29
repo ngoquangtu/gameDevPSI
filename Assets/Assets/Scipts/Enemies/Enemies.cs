@@ -1,15 +1,23 @@
 using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEditor.Experimental.GraphView.GraphView;
+using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class Enemies : MonoBehaviour
 {
     public int maxenemyHealth = 100;
     private int currentHealth;
-    [SerializeField] private int damageEnemy;
+    [SerializeField] private int damage = 0;
+
+    public UnityEvent OnDeath;
+
+    //Ui
+    public HealthBar healthBar;
 
     public bool ismovetable;
     public float moveSpeed;
@@ -19,44 +27,43 @@ public class Enemies : MonoBehaviour
     private bool reachDestination = false;
     private bool roaming =false ; // update path occasionally
     Path path;
-    Coroutine moveCoroutine;
+    Coroutine moveCoroutine;    
 
-    public void TakeDamage(int damage)
+    public void TakeDamage()
     {
+        Debug.Log("ga");
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
-            Die();
+            OnDeath.Invoke();
         }
+        healthBar.UpdateHealth(currentHealth, maxenemyHealth);
+    }
+    private void OnEnable()
+    {
+        OnDeath.AddListener(Die);
+    }
+    private void OnDisable()
+    {
+        OnDeath.RemoveListener(Die);
     }
     private void OnCollisionEnter2D(Collision2D other)
         {
-            if(other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
             {
-                if (PermenantUI.perm != null)
-                {
-                    InvokeRepeating("getHealthy",0.0f,1.0f);
-                    InvokeRepeating("ShowDamageText",0.0f,1.0f);
-
-                }
+            // get player att 
+            // set dammage = att
+            damage = 10;
+            Debug.Log("meo");  
+            InvokeRepeating("TakeDamage", 0.0f, 0.1f);
              }   
     }
-    private void ShowDamageText()
-    {
-        healthDisplayUI.Instance.ShowDamageText(-damageEnemy);
-    }
     private void OnCollisionExit2D(Collision2D other)
-{
-    if (other.gameObject.CompareTag("Player"))
     {
-        CancelInvoke("getHealthy");
-        CancelInvoke("ShowDamageText");
-    }
-}
-    public void getHealthy()
-    {
-         PermenantUI.perm.currentHealth-=damageEnemy;
-
+        if (other.gameObject.CompareTag("Player"))
+        {
+            CancelInvoke("TakeDamage");
+        }
     }
     void Die()
     {
@@ -138,6 +145,5 @@ public class Enemies : MonoBehaviour
     }
     void Update()
     {
-
     }
 }

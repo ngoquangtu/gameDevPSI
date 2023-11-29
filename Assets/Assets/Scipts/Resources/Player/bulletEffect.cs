@@ -30,7 +30,7 @@ private void OnCollisionEnter2D(Collision2D collision)
                 if(enemy != null )
                 {
                     // enemy.TakeDamage(ControllerPlayer.Instance.DamagePlayer);
-                    enemy.TakeDamage(10);
+                    enemy.TakeDamage();
                     
                 }
             }
