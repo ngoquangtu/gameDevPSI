@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
+
 public class redMan : Character,INTERhealthManager
 {
     private healthManager healthmanage;
     private float currentHealth;
+    public static redMan Instance;
     public redMan(GameObject gameObject):base(gameObject)
     {
         speed = 10;
@@ -14,20 +17,32 @@ public class redMan : Character,INTERhealthManager
         damagePlayer = 15;
         Debug.LogWarning("da duoc goi"+hp);
     }
+    private void Awake()
+    {
+       if(Instance==null)
+        {
+            Instance = this;
+        }
+       else
+        {
+            Destroy(gameObject);
+        }
+     }
     protected override void Start()
     {
         base.Start();
         healthmanage = FindObjectOfType<healthManager>();
         if (healthmanage != null)
         {
-            healthmanage.SetMaxHealth(hp);
+            healthmanage.SetMaxHealth(Instance.hp);
             Debug.LogWarning("hp"+hp);
         }
     }
-    private void Update()
+    new  private void Update()
     {
+        base.Update();
         healthmanage.UpdateHealthBar();
-        // healthmanage.TakeDamage(damagePlayer);
+/*        healthmanage.TakeDamage(damagePlayer);*/
         currentHealth = healthmanage.GetCurrentHealth();
         Debug.Log("Mau hien tai:"+currentHealth);
     }
@@ -48,7 +63,6 @@ public class redMan : Character,INTERhealthManager
         if (healthmanage != null)
         {
             healthmanage.TakeDamage(damageAmount);
-            
         }
         else
         {
