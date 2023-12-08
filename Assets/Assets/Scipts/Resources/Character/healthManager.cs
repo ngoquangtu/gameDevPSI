@@ -11,9 +11,11 @@ public interface INTERhealthManager
 public class healthManager : MonoBehaviour,INTERhealthManager
 {
     public Slider healthBar;
-    internal  float maxHealth;
-    internal  float currentHealth;
+    protected  float maxHealth;
+    protected  float currentHealth;
 
+    protected virtual void Start()
+    {    }
     private void Update()
     {
         UpdateHealthBar();
@@ -22,8 +24,8 @@ public class healthManager : MonoBehaviour,INTERhealthManager
     }
     public virtual void TakeDamage(float damage)
     {
-        currentHealth -= damage*Time.deltaTime;
-        currentHealth=Mathf.Clamp(currentHealth,-1,maxHealth);
+        currentHealth -= damage;
+        currentHealth=Mathf.Clamp(currentHealth,0,maxHealth);
         Debug.LogWarning(maxHealth);
         UpdateHealthBar();
         if(currentHealth<=0)
@@ -31,9 +33,8 @@ public class healthManager : MonoBehaviour,INTERhealthManager
             Debug.LogWarning("Player Died");
         }
     }
-    public void SetMaxHealth(float max)
+    public  void SetMaxHealth(float max)
     {
-
         maxHealth = max;
         currentHealth = max;
         Debug.LogWarning(maxHealth);
