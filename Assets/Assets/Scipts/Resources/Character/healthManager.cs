@@ -24,6 +24,7 @@ public class healthManager : MonoBehaviour,INTERhealthManager
     {
         currentHealth -= damage*Time.deltaTime;
         currentHealth=Mathf.Clamp(currentHealth,-1,maxHealth);
+        Debug.LogWarning(maxHealth);
         UpdateHealthBar();
         if(currentHealth<=0)
         {
@@ -32,16 +33,17 @@ public class healthManager : MonoBehaviour,INTERhealthManager
     }
     public void SetMaxHealth(float max)
     {
+
         maxHealth = max;
         currentHealth = max;
+        Debug.LogWarning(maxHealth);
+        Debug.LogWarning("mau max"+max);
         UpdateHealthBar();
     }
     public void UpdateHealthBar()
     {
-        if(maxHealth>0)
-        {
-            healthBar.value=currentHealth/maxHealth;
-        }
+        healthBar.value=currentHealth/maxHealth;
+        Debug.Log("Maxhealth"+maxHealth);
     }
     public float GetCurrentHealth()
     {

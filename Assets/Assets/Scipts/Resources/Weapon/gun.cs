@@ -22,8 +22,6 @@ public class gun : MonoBehaviour
      [SerializeField] private float bulletSpread=10f;
      [SerializeField] private float recoilForce=2.0f;
 
-    [SerializeField] private  float smoothSpeed = 100f;
-
     private AudioSource audioShot;
 
     private CrossHairManager crossHairManager;

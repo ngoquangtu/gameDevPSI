@@ -11,8 +11,15 @@ public class CrossHairManager : MonoBehaviour
 
     public void UpdateCrosshair()
     {
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        StartPosCrossHair();
+          if (crossHair != null)
+        {
+            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            StartPosCrossHair();
+        }
+        else
+        {
+            Debug.LogError("Crosshair object is not assigned.");
+        }
     }
 
     private void StartPosCrossHair()
