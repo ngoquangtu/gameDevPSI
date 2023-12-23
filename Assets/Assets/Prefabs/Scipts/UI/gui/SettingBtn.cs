@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SettingBtn : MonoBehaviour
 {
     [SerializeField] private GameObject panelSound;
     [SerializeField] private AudioSource backgroundMusic; 
     private float volume;
+    [SerializeField] private Slider sliderVolume;
 
     private void Start()
     {
@@ -15,6 +17,10 @@ public class SettingBtn : MonoBehaviour
             Debug.LogError("Please assign panelSound and backgroundMusic in the Inspector!");
         }
         PlayBackgroundMusic();
+    }
+    private void Update()
+    {
+        SetBackgroundMusicVolume();
     }
     public void Exit()
     {
@@ -42,8 +48,9 @@ public class SettingBtn : MonoBehaviour
 
     public void SetBackgroundMusicVolume()
     {
-        volume = Mathf.Clamp01(volume); 
+        volume = sliderVolume.value;
         backgroundMusic.volume = volume;
+
     }
      private void PlayBackgroundMusic()
     {

@@ -6,14 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Assets/Prefabs/Scenes/SampleScene/Volume/MainScene/StartScene.unity
+    guid: 30534517118f32546b636d9c133cd82c
+  - enabled: 1
     path: Assets/Assets/Prefabs/Scenes/SampleScene/Volume/MainScene/MenuScene.unity
     guid: 4032975c65eb0e9439da7affd7703da1
   - enabled: 1
     path: Assets/Assets/Prefabs/Scenes/SampleScene/Volume/MainScene/game.unity
     guid: 3fe6fe3d9c29ce247a88a680aefe13d6
-  - enabled: 0
-    path: Assets/Assets/Prefabs/Scenes/SampleScene/Volume/MainScene/MainScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 02dcbc40ef9ea6841be4377a95c7fec5, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 73de72f9575feae41bca6257b2be3095, type: 2}
