@@ -7,6 +7,7 @@ using UnityEngine;
 using static UnityEditor.Experimental.GraphView.GraphView;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Enemies : MonoBehaviour
 {
@@ -31,13 +32,11 @@ public class Enemies : MonoBehaviour
 
     public void TakeDamage()
     {
-        Debug.Log("ga");
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
             OnDeath.Invoke();
         }
-        healthBar.UpdateHealth(currentHealth, maxenemyHealth);
     }
     private void OnEnable()
     {
@@ -51,10 +50,7 @@ public class Enemies : MonoBehaviour
         {
         if (other.gameObject.CompareTag("Player"))
             {
-            // get player att 
-            // set dammage = att
-            damage = 10;
-            Debug.Log("meo");  
+            damage = 10;  
             InvokeRepeating("TakeDamage", 0.0f, 0.1f);
              }   
     }
@@ -107,6 +103,16 @@ public class Enemies : MonoBehaviour
                 currentWP++;
 
             yield return null;
+            if (direction.x < 0)
+            {
+                if (transform.GetChild(0).transform.localScale.x > 0)
+                    transform.GetChild(0).transform.localScale *= new Vector2(-1, 1);
+            }
+            else
+            {
+                if (transform.GetChild(0).transform.localScale.x < 0)
+                    transform.GetChild(0).transform.localScale *= new Vector2(-1, 1);
+            }
         }
         reachDestination = true;
     }
@@ -132,6 +138,14 @@ public class Enemies : MonoBehaviour
         roaming = c;
         return roaming;
     }
+    public void set_currentHealth(int currenthealth)
+    {
+        currentHealth = currenthealth;
+    }
+    public int get_currentHealth() 
+    {
+        return currentHealth;
+    }
     public void run()
     {
         set_reachDestination(true);
@@ -145,5 +159,6 @@ public class Enemies : MonoBehaviour
     }
     void Update()
     {
+        healthBar.UpdateHealth(currentHealth, maxenemyHealth);
     }
 }

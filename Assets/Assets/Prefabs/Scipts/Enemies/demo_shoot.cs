@@ -5,7 +5,7 @@ using UnityEngine;
 public class demo_shoot : MonoBehaviour
 {
     //Shoot
-    public GameObject bullet = null;
+    public GameObject bullet ;
     public float bulletSpeed;
     public float TimebtwFire;
     private float fireCooldown;
