@@ -7,6 +7,8 @@ using TMPro;
 public class CreateBtnSkill : MonoBehaviour
 {
 
+   [SerializeField] private GameObject redAvt;
+    [SerializeField] private GameObject yellowAvt;  
     [SerializeField] private GameObject swordskillBtn;
     [SerializeField] private GameObject bombskillBtn;
     [SerializeField] private float fillSpeed = 0.1f;
@@ -25,6 +27,7 @@ public class CreateBtnSkill : MonoBehaviour
         {
             CreateButton();
         }
+        CreateAvartar();
     }
     private void Awake()
     {
@@ -40,6 +43,8 @@ public class CreateBtnSkill : MonoBehaviour
     {
         swordskillBtn.SetActive(false);
         bombskillBtn.SetActive(false);
+        redAvt.SetActive(false);
+        yellowAvt.SetActive(false);
         imageswordSkill.fillAmount=1;
         imagebombSkill.fillAmount=1;
         CheckCharacter();
@@ -48,6 +53,20 @@ public class CreateBtnSkill : MonoBehaviour
     {
         swordskillBtn.SetActive(true);
         bombskillBtn.SetActive(true);
+    }
+    void CreateAvartar()
+    {
+        if(playerSelected.Instance.index==0)
+        {
+            yellowAvt.SetActive(true);
+            redAvt.SetActive(false);
+            
+        }
+        else if(playerSelected.Instance.index==1)
+        {
+            yellowAvt.SetActive(false);
+            redAvt.SetActive(true);
+        }
     }
 
     void UpdatebombSkillBtn()

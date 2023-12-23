@@ -45,9 +45,11 @@ public class ControllerPlayer : MonoBehaviour
         }
         private void Update()
         {
-
+            if(!healthManager.Instance.isDead)
+            {
             Moving();
-            checkDied();
+            }
+            isDead();
         }
 
         private void Moving()
@@ -98,18 +100,20 @@ public class ControllerPlayer : MonoBehaviour
             {
                 state=State.idledown;
             } 
-            else if(PermenantUI.perm.currentHealth<=0)
+            else if(healthManager.Instance.currentHealth<=0)
             {
                 state=State.died;
             }
-        
         }
-        private void checkDied()
+        private void isDead()
         {
             if(state==State.died)
             {
-                Debug.Log("REGAME");
-
+                healthManager.Instance.isDead=true;
+                if(PanelRegame.Instance.checkRegame)
+                {
+                    Destroy(gameObject);
+                }
             }
         }
         protected void ApplyState()
