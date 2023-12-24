@@ -29,6 +29,7 @@ private void OnCollisionEnter2D(Collision2D collision)
                 Enemies enemy=collision.collider.GetComponent<Enemies>();
                 if(enemy != null )
                 {
+                    Debug.Log("Dang va cham voi enemies va tru mau");
                     float damage = yellowMan.Instance.DamagePlayer;
                     enemy.TakeDamage(damage);
                 }

@@ -11,7 +11,6 @@ public class HealthBar : MonoBehaviour
     public Image fillbar;
     public void UpdateHealth(float currentValue, float maxValue)
     {
-        Debug.Log("a");
         fillbar.fillAmount = (float)currentValue / (float)maxValue;
     }
 }

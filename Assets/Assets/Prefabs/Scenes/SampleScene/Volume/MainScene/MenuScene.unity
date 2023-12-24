@@ -10401,7 +10401,6 @@ MonoBehaviour:
   inforcharacterPrefabs:
   - {fileID: 381795338}
   - {fileID: 255854942}
-  swordskillBtn: {fileID: 5824194274558596713, guid: 1f8d306714117ce409ba51bb89795786, type: 3}
   chooseSound: {fileID: 286415652}
 --- !u!82 &286415652
 AudioSource:
@@ -16129,8 +16128,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.00910002, y: 0.006650001, z: 0}
-    m_Extent: {x: 0.9997, y: 0.93385005, z: 0}
+    m_Center: {x: 0.001850009, y: -0.00069999695, z: 0}
+    m_Extent: {x: 1.00425, y: 0.9392, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -16608,8 +16607,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.004150003, y: 0.0032500029, z: 0}
-    m_Extent: {x: 0.93525004, y: 1.00185, z: 0}
+    m_Center: {x: -0.0042999983, y: -0.0022999942, z: 0}
+    m_Extent: {x: 0.9377, y: 0.99310005, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -22071,7 +22070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c529a1dec905e4fbd653baae457f2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundSound: {fileID: 1735372498}
+  backgroundSound: {fileID: 0}
 --- !u!1 &1755455600
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,7 +13,6 @@ public class playerSelected : MonoBehaviour
     [SerializeField] GameObject[] characterPrefabs;
     [SerializeField] GameObject[] inforcharacterPrefabs;
     public static GameObject selectedCharacter;
-    [SerializeField] private Button swordskillBtn;
     [SerializeField] private AudioSource chooseSound;
 
     public static playerSelected Instance;
