@@ -18,9 +18,10 @@ public class healthDisplayUI : MonoBehaviour
         if (Instance == null)
         {
             Instance=this;
+            
         }
     }
-    public void ShowDamageText(int damage)
+    public void ShowDamageText(float damage)
     {
         TMP_Text damageText = Instantiate(damageTextPrefab, canvasTransform);
         
@@ -29,7 +30,7 @@ public class healthDisplayUI : MonoBehaviour
 
         StartCoroutine(MoveAndDestroy(damageText));
     }
-    public void ShowBonusHealthText(int healthBonus)
+    public void ShowBonusHealthText(float healthBonus)
     {
         TMP_Text healthPotionText = Instantiate(healthPotionTextPrefab, canvasTransform);
         healthPotionText.text=healthBonus.ToString();

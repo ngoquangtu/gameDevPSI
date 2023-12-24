@@ -109,6 +109,6 @@ public class playerSelected : MonoBehaviour
     }
     public void startScene()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 }

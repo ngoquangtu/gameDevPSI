@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 3691736540855169709}
   - component: {fileID: 1624896558936730420}
   - component: {fileID: 6777573106825974434}
-  - component: {fileID: 8763071637548565916}
-  - component: {fileID: 5990340695624973995}
   - component: {fileID: 4576224328201001442}
   m_Layer: 23
   m_Name: Alex
@@ -122,36 +120,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &8763071637548565916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4324617216009472089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 710cbb6734ada8342b92c27fbbe8c4cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageTextPrefab: {fileID: 8478450596008167161, guid: 47d4b17e4bfb32e44bda936af11b0de7, type: 3}
-  healthPotionTextPrefab: {fileID: 709615805234137183, guid: 159cea6b9495e5345917b6572248bc1f, type: 3}
-  canvasTransform: {fileID: 1744388214788065669, guid: f1e1568b9dece5d469fc57d8bac85795, type: 3}
-  damageDuration: 1
-  damageSpeed: 1
---- !u!114 &5990340695624973995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4324617216009472089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5bf31c055e50454190c3a746a00cbbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBonus: 10
 --- !u!114 &4576224328201001442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  damagePlayer: 0
+  damagePlayer: 10
   horizontalInput: 0
   verticalInput: 0
   anim: {fileID: 6125296169481873601}

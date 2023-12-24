@@ -18,6 +18,8 @@ public class swordRotate : MonoBehaviour
     private bool isSwordSkillOnCooldown=false;
     private bool timeBombCooldown=false;
 
+    public bool skillClickSword=false;
+
     private bool isPerformingSkill = false ;
     [SerializeField] private GameObject bombPrefabs;
     [SerializeField] private float timeReloadBomb=7.0f;
@@ -56,6 +58,7 @@ public class swordRotate : MonoBehaviour
         {
             sword.SetActive(false);
             sword_cut.SetActive(true);
+            skillClickSword=true;
             timeBtwHit = TimeBtwHit;
             state=State.hit;
         }
@@ -64,6 +67,7 @@ public class swordRotate : MonoBehaviour
             sword.SetActive(true);
             sword_cut.SetActive(false);
             StartCoroutine(sword_skill());
+            skillClickSword=false;
         }
         else if(Input.GetKeyDown("space") && !timeBombCooldown)
         {
@@ -72,6 +76,7 @@ public class swordRotate : MonoBehaviour
         else
         {
             state=State.idle;
+            skillClickSword=false;
         }
     }
  

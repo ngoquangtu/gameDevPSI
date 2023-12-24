@@ -33,7 +33,7 @@ public class PanelRegame : MonoBehaviour
     }
     public void Regame()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
         healthManager.Instance.isDead=true;
         checkRegame=true;
 

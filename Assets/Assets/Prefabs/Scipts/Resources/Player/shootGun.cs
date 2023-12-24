@@ -24,7 +24,7 @@ public class shootGun : MonoBehaviour
      [SerializeField] private float recoilForce=2.0f;
 
     [SerializeField] private  float smoothSpeed = 100f;
-
+    
     private AudioSource audioShot;
 
     private void Awake()

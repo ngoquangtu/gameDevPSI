@@ -10,9 +10,9 @@ using UnityEngine.Events;
 
 public class Enemies : MonoBehaviour
 {
-    public int maxenemyHealth = 100;
-    private int currentHealth;
-    [SerializeField] private int damage = 0;
+    public float maxenemyHealth = 100;
+    private float currentHealth;
+    [SerializeField] private float damage = 0;
 
     public UnityEvent OnDeath;
 
@@ -29,10 +29,10 @@ public class Enemies : MonoBehaviour
     Path path;
     Coroutine moveCoroutine;    
 
-    public void TakeDamage()
+    public void TakeDamage(float damagePlayer)
     {
         Debug.Log("ga");
-        currentHealth -= damage;
+        currentHealth -= damagePlayer;
         if (currentHealth <= 0)
         {
             OnDeath.Invoke();

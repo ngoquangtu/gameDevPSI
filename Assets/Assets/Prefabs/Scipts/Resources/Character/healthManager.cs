@@ -33,7 +33,6 @@ public class healthManager : MonoBehaviour
     public void SetMaxHealth(float maxHealthValue)
     {
         maxHealth = maxHealthValue;
-        Debug.LogWarning("mau max khi set : "+maxHealth);
         currentHealth = maxHealth; 
         UpdateHealthBar();
     }
@@ -52,7 +51,6 @@ public class healthManager : MonoBehaviour
     public  void UpdateHealthBar()
     {   
         if(healthBar==null) return; 
-        Debug.LogWarning("mau max"+maxHealth);
         if(maxHealth>0)
         {
             float sliderValue = currentHealth / maxHealth;

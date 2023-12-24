@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class yellowMan : MonoBehaviour
 {
-        public static yellowMan Instance { get; private set; }
+        public static yellowMan Instance;
         
         [SerializeField] private  float moveSpeed;
-        [SerializeField] private int damagePlayer;
+        [SerializeField] private float damagePlayer;
         public float horizontalInput;
         public float verticalInput;
         [SerializeField] private Animator anim;
@@ -31,8 +31,6 @@ public class yellowMan : MonoBehaviour
                 Destroy(gameObject);
             }
 
-            // inventory=new Inventory();
-            // uiventory.SetInventory(inventory);
         }
         private void Start()
         {
@@ -118,7 +116,7 @@ public class yellowMan : MonoBehaviour
         {
             anim.SetInteger("state",(int)state);
         }
-        public int DamagePlayer
+        public float DamagePlayer
         {
             get 
             { return damagePlayer; }

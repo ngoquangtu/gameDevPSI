@@ -29,9 +29,8 @@ private void OnCollisionEnter2D(Collision2D collision)
                 Enemies enemy=collision.collider.GetComponent<Enemies>();
                 if(enemy != null )
                 {
-                    // enemy.TakeDamage(ControllerPlayer.Instance.DamagePlayer);
-                    enemy.TakeDamage();
-                    
+                    float damage = yellowMan.Instance.DamagePlayer;
+                    enemy.TakeDamage(damage);
                 }
             }
         } 

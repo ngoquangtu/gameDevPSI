@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3003231250252323949}
   m_Layer: 6
   m_Name: Sword-Rotate
-  m_TagString: Untagged
+  m_TagString: sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 8191890805846325014}
   m_Layer: 6
   m_Name: Sword-Cut
-  m_TagString: Untagged
+  m_TagString: sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -314,7 +314,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5533168849986180853}
-  - {fileID: 6114731314572631418}
   m_Father: {fileID: 7361635997049115688}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1622062263498324500
@@ -553,88 +552,3 @@ MonoBehaviour:
   animator: {fileID: 8191890805846325014}
   bombPrefabs: {fileID: 3077607818537881665, guid: 9db2ade8f6b6b454eafb55ebf617d1e9, type: 3}
   timeReloadBomb: 7
---- !u!1 &8400375583841181864
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6114731314572631418}
-  - component: {fileID: 8674060379459836074}
-  m_Layer: 6
-  m_Name: swordCollider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &6114731314572631418
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8400375583841181864}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1926270124334396233}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!68 &8674060379459836074
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8400375583841181864}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.8906411, y: -0.52480525}
-  - {x: -1.3005245, y: 0.061228782}
-  - {x: -1.7724377, y: 0.77214205}
-  - {x: -1.7752063, y: 1.1794333}
-  - {x: -1.4688087, y: 1.3991977}
-  - {x: -1.511544, y: 1.1881906}
-  - {x: -1.4251539, y: 0.9572667}
-  - {x: -1.5336121, y: 0.8044382}
-  - {x: -1.1008852, y: 0.15439935}
-  - {x: -1.006269, y: 0.18257079}
-  - {x: -1.0723794, y: 0.05727175}
-  - {x: -0.7676118, y: -0.35942388}
-  - {x: -0.88593835, y: -0.52453256}
-  - {x: -0.8913885, y: -0.5168012}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
